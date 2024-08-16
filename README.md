@@ -1,6 +1,6 @@
 Prefix: /p <crypto coin> 
 
-Contoh: /p btc
+Contoh: /p btc eth sui sol
 
 Coin List:
 cvx, defi, tnsr, tru, taiko, meme, ton, wif, fida, not, alpha, comp, matic, gal, render, manta, iq, hifi, ape, gmx, knc, iota, rif, zent, 
