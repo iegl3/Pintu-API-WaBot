@@ -25,24 +25,22 @@ client.on("authenticated", () => {
 client.on("message", async (msg) => {
   if (!msg.body.startsWith("/p ")) return;
 
-  const crypto = msg.body.slice(3).trim().toLowerCase();
-  if (!crypto) {
-    msg.reply("Please provide a cryptocurrency code after /p. Example: /p btc");
+  const cryptos = msg.body.slice(3).trim().toLowerCase().split(" ");
+  if (cryptos.length === 0) {
+    msg.reply("Please provide one or more cryptocurrency codes after /p.");
     return;
   }
 
   try {
     const data = await fetchCryptoData();
-    const cryptoData = data.find((item) => item.pair.startsWith(crypto));
+    const messages = cryptos.map((crypto) => {
+      const cryptoData = data.find((item) => item.pair.startsWith(crypto));
+      return cryptoData
+        ? formatCryptoMessage(cryptoData)
+        : `No data found for cryptocurrency code "${crypto}".`;
+    });
 
-    if (cryptoData) {
-      const formattedPrice = formatPrice(parseFloat(cryptoData.latestPrice));
-      msg.reply(generateMessage(cryptoData, formattedPrice));
-    } else {
-      msg.reply(
-        `No data found for cryptocurrency code "${crypto}". Please ensure the code is correct.`
-      );
-    }
+    msg.reply(messages.join("\n\n"));
   } catch (error) {
     console.error("Error fetching data:", error);
     msg.reply("Failed to fetch data. Please try again later.");
@@ -58,8 +56,9 @@ const fetchCryptoData = async () => {
   return payload;
 };
 
-const generateMessage = (cryptoData, formattedPrice) =>
-  `
+const formatCryptoMessage = (cryptoData) => {
+  const formattedPrice = formatPrice(parseFloat(cryptoData.latestPrice));
+  return `
 *Pair*: ${cryptoData.pair.toUpperCase()}
 *Latest Price*: ${formattedPrice}
 *Day Change*: ${cryptoData.day}%
@@ -67,5 +66,6 @@ const generateMessage = (cryptoData, formattedPrice) =>
 *Month Change*: ${cryptoData.month}%
 *Year Change*: ${cryptoData.year}%
 `.trim();
+};
 
 client.initialize();
