@@ -1,5 +1,6 @@
-Prefix: /p <crypto coin> 
+Crypto Whatsapp Bot with Indonesian currency 
 
+Prefix: /p <crypto coin> 
 Contoh: /p btc eth sui sol
 
 Coin List:
