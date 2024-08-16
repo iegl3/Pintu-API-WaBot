@@ -11,3 +11,7 @@ hive, honey, grt, rune, unfi, gfi, rdnt, polyx, next, pond, rvn, pepe, spec, ant
 rats, yfi, fxs, stx, orn, coti, mdx, front, bome, trb, axl, icp, avax, bnb, omg, neo, bsw, trac, zk-deprecated, g, cake, gas, tenet, hft, mew, iotx, ygg, 
 foxy, 1inch, near, sushi, waves, ast, zro, popcat, eth, ilv, insp, 1000sats, band, trx, joe, qi, mpl, zen, ctc, gmt, zil, kas, mbox, combo, token, ethfi, agi, 
 usdt, qtum, coq, loom, xvs, rez, strax, flip, jto, axs, btc, enj, snx, srm
+
+Usage:
+- npm install
+- node pintu.js
