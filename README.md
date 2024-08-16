@@ -13,5 +13,5 @@ foxy, 1inch, near, sushi, waves, ast, zro, popcat, eth, ilv, insp, 1000sats, ban
 usdt, qtum, coq, loom, xvs, rez, strax, flip, jto, axs, btc, enj, snx, srm
 
 Usage:
-- npm install whatsapp-web.js qrcode-terminal node-fetch
+- npm install
 - node pintu.js
